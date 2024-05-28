@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int sum = 0;
+
+	int v1 = 1;
+	float v2 = 0.2;
+	char v3;
+	double v4 = 10;
+	int *p1 = NULL;
+	float *p2 = NULL;
+	char *p3 = NULL;
+	double *p4 = NULL;
+
+	p1 = &v1;
+	p2 = &v2;
+	p3 = &v3;
+	p4 = &v4;
+
+	cout << endl << "using variable: " << endl;
+	cout << &v1 << endl << &v2 << endl << &v3 << endl << &v4 << endl;
+	cout << endl << "using pointers: " << endl;
+	cout << p1 << endl << p2 << endl << p3 << endl << p4 << endl;
+	v3 = 'a';
+	cout << endl << "value using pointers: " << endl;
+	cout << *p1 << endl << *p2 << endl << *p3 << endl << *p4 << endl;
+	cout << endl << "value using variable: " << endl;
+	cout << v1 << endl << v2 << endl << v3 << endl << v4 << endl;
+
+	cout << endl << "enter value" << endl;
+	cin >> v1 >> v2 >> v4;
+
+	p1 = &v1;
+	p2 = &v2;
+	p4 = &v4;
+	cout << endl << "value using pointers: " << endl;
+	cout << *p1 << endl << *p2 << endl << *p3 << endl << *p4 << endl;
+	system("pause");
+	return 0;
+}
