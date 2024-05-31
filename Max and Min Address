@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int s;
+	int size;
+	cout << "Enter size: " << endl;
+	cin >> size;
+	int *ptr = new int[size];
+  cout << "Enter Size of values : ";
+	cin >> s;
+
+	cout << "Enter valuse: " << endl;
+  cout << "Enter valuse: " << i << endl;
+	for (int i = 0; i < size; i++)
+	{
+		cin >> *(ptr+i);
+	}
+	int*minptr = ptr;
+	int *maxptr = ptr;
+
+
+	for (int i = 0; i < size; i++)
+	{
+		if (*maxptr < *(ptr + i))
+		{
+			maxptr = (ptr + i);
+		}
+		if (*minptr > *(ptr + i))
+		{
+			minptr = (ptr + i);
+		}
+	}
+
+	cout << "Max = " << *maxptr << endl;
+	cout <<"min = " << *minptr << endl;
+	system("pause");
+	return 0;
+}
