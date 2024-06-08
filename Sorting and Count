@@ -1,0 +1,26 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main(){
+    char input[100]={};
+    int count=0;
+    ifstream in;
+    in.open("data.txt");
+
+    if(in){
+        while(!in.eof()){
+        //in.getline(input,100,' ');
+        in>>input;
+        cout<<" "<<input;
+        count++;
+        }
+        cout<<endl;
+        cout<<"Count: "<<count;
+        
+
+
+    }else{
+        cout<<"File Does Not Open: ";
+    }
+    return 0;
+}
