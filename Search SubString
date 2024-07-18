@@ -1,0 +1,128 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+void allocateCols(char** al, int row, ifstream& in, int* col) 
+{
+  
+    if (in) 
+    {
+        char temp[1000];
+        for (int i = 0; i < row; i++) 
+        
+        
+        {
+            in.getline(temp, 1000);
+            int spaces = 0;
+            int index = 0;
+            while (temp[index] != '\0') 
+            {
+                if (temp[index] == ' ') 
+                spaces++;
+                index++;
+            }
+            col[i] = spaces + 1; 
+            al[i] = new char[col[i]]; 
+            index = 0;
+            int colIndex = 0;
+            while (temp[index] != '\0') 
+            {
+                if (temp[index] != ' ')
+                 {
+                    al[i][colIndex++] = temp[index];
+                }
+                index++;
+            }
+        }
+    } else
+     {
+        cout << "File Does Not open" << endl;
+    }
+}
+
+void allocateRows(char**& al, int row) 
+{
+    al= new char*[row];
+}
+
+int countLines(ifstream& in) 
+{
+    int lines = 0;
+    if (in) 
+    {
+        in >> lines;
+    } else
+     {
+        cout << "File DOes Not Open" << endl;
+    }
+    return lines;
+}
+
+
+void searchSubstring(char** array, int rows, int* cols, const char* substring) 
+{
+    int subLength = 0;
+    while (substring[subLength] != '\0') {
+        subLength++;
+    }
+
+    for (int i = 0; i < rows; i++)
+     {
+        for (int j = 0; j <= cols[i] - subLength; j++) 
+        {
+            bool found = true;
+
+
+            for (int k = 0; k < subLength; k++)
+             {
+                if (array[i][j + k] != substring[k]) 
+                
+                {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                cout << "Starting index = [" << i << "][" << j << "] and Ending index = [" << i << "][" << j + subLength - 1 << "]" << endl;
+            }
+        }
+    }
+}
+
+int main() {
+    ifstream in;
+    in.open("data2.txt");
+
+    if (!in) 
+    {
+        cout << "File DOes Not Open" << endl;
+        
+    }
+
+    int rows = countLines(in);
+    char** arr = nullptr;
+    int* cols = new int[rows];
+
+     allocateRows(arr, rows);
+     allocateCols(arr, rows, in, cols);
+
+    in.close();
+
+    cout << "Enter Substring: ";
+    char substring[100];
+    cin >> substring;
+
+   
+   searchSubstring(arr, rows, cols, substring);
+
+    
+    for (int i = 0; i < rows;i++) 
+    {
+        delete[] arr[i];
+    }
+    delete[] arr;
+    delete[] cols;
+
+    return 0;
+}
