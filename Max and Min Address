@@ -4,7 +4,7 @@ int main()
 {
 	int s;
 	int size;
-	cout << "Enter size: " << endl;
+	cout << "Enter Size of String: " << endl;
 	cin >> size;
 	int *ptr = new int[size];
   cout << "Enter Size of values : ";
