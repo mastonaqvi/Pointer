@@ -18,7 +18,7 @@ int main()
 	p3 = &v3;
 	p4 = &v4;
 
-	cout << endl << "using variable: " << endl;
+	cout << endl << "Using Variable: " << endl;
 	cout << &v1 << endl << &v2 << endl << &v3 << endl << &v4 << endl;
 	cout << endl << "using pointers: " << endl;
 	cout << p1 << endl << p2 << endl << p3 << endl << p4 << endl;
