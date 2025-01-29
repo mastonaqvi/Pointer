@@ -13,7 +13,7 @@ int main()
 	
 	for (int i = 1; i < s+1; i++)
 	{
-		cout << "Enter valuse: " << i << endl;
+		cout << "Enter Values: " << i << endl;
 		cin >> *(ptr+i);
 	}
 	for (int i = 0; i < 10; i++)
